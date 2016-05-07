@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="joypad_grey_50">#FAFAFA</color>
+    <color name="joypad_grey_300">#E0E0E0</color>
+    <color name="joypad_grey_500">#9E9E9E</color>
+    <color name="joypad_grey_900">#212121</color>
+    <color name="grey_800">#6F6F6F</color>
+    <color name="blue_500">#0000FF</color>
+    <color name="blue_800">#0000DD</color>
+    <color name="blue_900">#0000CC</color>
+</resources>

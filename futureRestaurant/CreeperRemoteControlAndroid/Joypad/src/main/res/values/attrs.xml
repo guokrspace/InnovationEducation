@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="JoypadView">
+        <attr name="outer_color" format="color"/>
+        <attr name="outer_width" format="dimension"/>
+        <attr name="inner_color" format="color"/>
+        <attr name="inner_radius" format="dimension"/>
+        <attr name="moveable_color" format="color"/>
+        <attr name="moveable_radius" format="dimension"/>
+        <attr name="directions_color" format="color"/>
+    </declare-styleable>
+</resources>

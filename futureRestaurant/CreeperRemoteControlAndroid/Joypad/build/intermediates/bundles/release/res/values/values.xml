@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- From: file:/Users/macbook/Desktop/CreeperRemote/Joypad/src/main/res/values/colors.xml -->
+    <eat-comment/>
+    <color name="blue_500">#0000FF</color>
+    <color name="blue_800">#0000DD</color>
+    <color name="blue_900">#0000CC</color>
+    <color name="grey_800">#6F6F6F</color>
+    <color name="joypad_grey_300">#E0E0E0</color>
+    <color name="joypad_grey_50">#FAFAFA</color>
+    <color name="joypad_grey_500">#9E9E9E</color>
+    <color name="joypad_grey_900">#212121</color>
+    <declare-styleable name="JoypadView"><attr format="color" name="outer_color"/><attr format="dimension" name="outer_width"/><attr format="color" name="inner_color"/><attr format="dimension" name="inner_radius"/><attr format="color" name="moveable_color"/><attr format="dimension" name="moveable_radius"/><attr format="color" name="directions_color"/></declare-styleable>
+    <!-- From: file:/Users/macbook/Desktop/CreeperRemote/Joypad/src/main/res/values/dimens.xml -->
+    <eat-comment/>
+    <dimen name="joypad_inner_radius">48dp</dimen>
+    <dimen name="joypad_moveable_radius">32dp</dimen>
+    <dimen name="joypad_outer_width">32dp</dimen>
+</resources>
