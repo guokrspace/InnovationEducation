@@ -16,11 +16,24 @@ It seems to be very smart solution, with two eyes, it can easily determine which
 - One Cameras follow a road confined by two lines
 The idea is that if it sees nothing, it just go straight, otherwise, the robot will bounce when it sees the line. However, it is very difficult to determine which direction to do, right or left when it was going straight and suddenly sees a black line. 
 
-### 3. Computer Vision and Algorithm
+### 3. Computer Vision with Python
 - The program language is [Python](www.python.org)
 - The Computer Vision library we used is called [Simple CV](). 
-- The algorithm
---
+
+### 4. The algorithm
+#### 1. It first takes the image from the camera. Then binarize it based on the color distance with the BLACK color.
+<pre
+    dist = img.colorDistance(Color.BLACK).dilate(2)
+    segmented = dist.binarize(80)
+pre/>
+#### 2. Determine the line direction
+- It then crop the segmented image from top to bottom evenly into 6 portions and looks for a blob which is a part of the black line.  
+- It will then have a array of X value of each blobs.
+- Based on the delta of the X values in the array, it can then determine the direction of the line.
+<pre
+
+/>
+
 ### Finally it works!
 
 
