@@ -34,18 +34,19 @@ The idea is that if it sees nothing, it just go straight, otherwise, the robot w
 - L298N Chip for Motors Python driver. [Code](./futureRestaurant/CreeperRobot/CreeperLegs.py).
 
 ### 4. The smart algorithm - It finally works with a improved software algorithm
-- 1. It first takes the image from the camera. Then binarize it based on the color distance with the BLACK color.
+1. It first takes the image from the camera. Then binarize it based on the color distance with the BLACK color.
 <pre
     dist = img.colorDistance(Color.BLACK).dilate(2)
     segmented = dist.binarize(80)
 pre/>
 The Diagram is needed ...
 
-- 2. It then determine the line direction
+2. It then determine the line direction
 It crops the segmented image from top to bottom evenly into 6 parts. For each part, it looks for a blob which is a part of the black line.  
 It will then have a array of X value of each blobs.
 Based on the delta of the X values in the array, it can then determine the trend(Left o right) of the line.
 For the details please look into the [code](./futureRestaurant/CreeperRobot/CreeperOneEyeTwoLines.py).
 The Diagram is needed ...
+![]
 
 ### The video shows how the robot works 
