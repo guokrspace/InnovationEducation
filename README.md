@@ -28,30 +28,32 @@ It seems to be very smart solution, with two eyes, it can easily determine which
 - One Cameras follow a road confined by two lines
 The idea is that if it sees nothing, it just go straight, otherwise, the robot will bounce when it sees the line. However, it is very difficult to determine which direction to do, right or left when it was going straight and suddenly sees a black line. 
 
-### 3. Real Technology - Computer Vision with Python
+### 3. Technology - Computer Vision with Python
 - The program language is [Python](www.python.org)
+- [Raspberry Pi](www.raspberrypi.org)
 - The Computer Vision library we used is called [Simple CV](http://www.simplecv.org/). 
 - L298N Chip for Motors Python driver. [Code](./futureRestaurant/CreeperRobot/CreeperLegs.py).
 
-### 4. The smart algorithm - It finally works with a improved software algorithm
-1. It first takes the image from the camera. Then binarize it based on the color distance with the BLACK color.
-```python
-dist = img.colorDistance(Color.BLACK).dilate(2)
-segmented = dist.binarize(80)
-```
-The following diagram shows how segmented(binarized) image looks like
-![](./futureRestaurant/images/goleft.png)
-![](./futureRestaurant/images/goright.png)
-
-2. It then determine the line direction
-It crops the segmented image horizontally evenly into 6 parts. For each part, it looks for a blob which is a part of the black line. Based on the position of each blob, it generate an array of X value of each blobs. Based on the delta of the X values in the array, it can then determine the trend(Left o right) of the line.
-![](./futureRestaurant/images/algorithm.png)
-For the details please look into the [code](./futureRestaurant/CreeperRobot/CreeperOneEyeTwoLines.py).
-
-3. Maths
+###. Math
 To understand above, we need to understand
 - [What is a 2D dimenstion system?](https://en.wikipedia.org/wiki/Dimension)
 - [What is an Arrary?](https://en.wikipedia.org/wiki/Matrix_(mathematics))
 - What is called Algorithm?()
 
-### The video shows how the robot works 
+### 4. The smart algorithm
+It finally works with a improved software algorithm.
+- Step I: It first takes the image from the camera, then binarize it based on the color distance with the BLACK color.
+```python
+dist = img.colorDistance(Color.BLACK).dilate(2)
+segmented = dist.binarize(80)
+```
+The following diagrams show how segmented(binarized) image looks like
+![](./futureRestaurant/images/goleft.png)
+![](./futureRestaurant/images/goright.png)
+
+- Step II: Determine the line direction
+It crops the segmented image vertically evenly into 6 parts. For each part, it looks for a blob which is a part of the black line. Based on the position of each blob, it generate an array of X value. Based on the delta of the X values in the array, it can determine the trend(Left o right) of the line.
+![](./futureRestaurant/images/algorithm.png)
+For the details please look into the [code](./futureRestaurant/CreeperRobot/CreeperOneEyeTwoLines.py).
+
+- [The video shows how the robot works](./futureRestaurant/FollowRoad.MOV)
