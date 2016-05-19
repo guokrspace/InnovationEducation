@@ -35,11 +35,16 @@ The idea is that if it sees nothing, it just go straight, otherwise, the robot w
 
 ### 4. The smart algorithm - It finally works with a improved software algorithm
 1. It first takes the image from the camera. Then binarize it based on the color distance with the BLACK color.
-```    dist = img.colorDistance(Color.BLACK).dilate(2)
-```    segmented = dist.binarize(80)
-````
-![Sees a line pointing to left](./futureRestaurant/images/goleft.png)
-![Sees a line pointing to right](./futureRestaurant/images/goleft.png)
+```python
+dist = img.colorDistance(Color.BLACK).dilate(2)
+segmented = dist.binarize(80)
+```
+
+The following diagram shows who it works
+- line pointing to left
+![](./futureRestaurant/images/goleft.png)
+- line pointing to right
+![](./futureRestaurant/images/goright.png)
 
 2. It then determine the line direction
 It crops the segmented image horizontally evenly into 6 parts. For each part, it looks for a blob which is a part of the black line. Based on the position of each blob, it generate an array of X value of each blobs.
