@@ -43,39 +43,35 @@ viewPortCenterHighThres = 160
 isLookingForRoad = False
 #0:Straight, #1:Left, #2:Right #3: Reverse
 
-myCamera = SimpleCV.Camera(0)
-#myCameraUSB = SimpleCV.Camera(1)
-#Camera(prop_set={"width":320,"height":240})
-myDisplay = Display(resolution=(320,240))
+#myCamera = SimpleCV.Camera(0)
+myCamera = Camera(prop_set{"width":320,"height":240})
+myDisplay = Display(resolution=(320,480))
 
 xArr = [];
 deltaArr = [];
-#while not myDisplay.isDone():
-while True:
+segments = [];
+while not myDisplay.isDone():
+#while True:
     del xArr[:]
     del deltaArr[:]
     img = myCamera.getImage().resize(320,240)
-    #imgUSB = myCameraUSB.getImage().resize(320,240)
-    #imgComb = imgUSB.sideBySide(img,side='left')
+    img_output = img
 
-    #find Green blob
-    #greenDistance = img.colorDistance(Color.GREEN).dilate(2)
-    #segmented = greenDistance.binarize(80)
-    #blobs = segmented.findBlobs(minsize = 1000)
-
-    #   
+    #Binarize
     dist = img.colorDistance(Color.BLACK).dilate(2)
     segmented = dist.binarize(80)
     
-    #
+    #Divide the view into 6 parts vertically
     for i in range(0,5):
         y = i * 40
         cropSegment = segmented.crop(0,y,320,40)
         blobs = cropSegment.findBlobs(minsize = 300)
         if blobs:
+            blobs.draw(width=3)
             xArr.append(blobs[0].x)
+        img_output = img_output.sideBySide(cropSegment,side="bottom")
 
-    #print xArr
+
     #See nothing or only see one part, go straight
     if sum(xArr)==0 or len(xArr) == 1:
         goStraight()
@@ -147,8 +143,7 @@ while True:
 
         # #r = requests.get('http://127.0.0.1/brake')
         # sleep(1)
-        
-    #img_output = img.sideBySide(cropSegmentedMiddle,side="bottom") 
-    #segmented.save(myDisplay)
+            
+    img_output.save(myDisplay)
 
     sleep(.1)
