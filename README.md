@@ -39,18 +39,19 @@ The idea is that if it sees nothing, it just go straight, otherwise, the robot w
 dist = img.colorDistance(Color.BLACK).dilate(2)
 segmented = dist.binarize(80)
 ```
-
-The following diagram shows who it works
-- line pointing to left
+The following diagram shows how segmented(binarized) image looks like
 ![](./futureRestaurant/images/goleft.png)
-- line pointing to right
 ![](./futureRestaurant/images/goright.png)
 
 2. It then determine the line direction
-It crops the segmented image horizontally evenly into 6 parts. For each part, it looks for a blob which is a part of the black line. Based on the position of each blob, it generate an array of X value of each blobs.
-Based on the delta of the X values in the array, it can then determine the trend(Left o right) of the line.
+It crops the segmented image horizontally evenly into 6 parts. For each part, it looks for a blob which is a part of the black line. Based on the position of each blob, it generate an array of X value of each blobs. Based on the delta of the X values in the array, it can then determine the trend(Left o right) of the line.
+![](./futureRestaurant/images/algorithm.png)
 For the details please look into the [code](./futureRestaurant/CreeperRobot/CreeperOneEyeTwoLines.py).
 
-![The Algorithm](./futureRestaurant/images/algorithm.png)
+3. Maths
+To understand above, we need to understand
+- [What is a 2D dimenstion system?](https://en.wikipedia.org/wiki/Dimension)
+- [What is an Arrary?](https://en.wikipedia.org/wiki/Matrix_(mathematics))
+- What is called Algorithm?()
 
 ### The video shows how the robot works 
